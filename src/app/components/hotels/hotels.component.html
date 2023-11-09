@@ -1,0 +1,32 @@
+<app-nav-bar></app-nav-bar>
+<div>
+  <div fxLayoutAlign="end" class="mt-5">
+    <button mat-raised-button (click)="openDialog()" color="primary">
+      Add Hotel
+    </button>
+  </div>
+
+  <div fxLayout="row wrap">
+    <ng-container *ngFor="let hotels of gettinghotellist">
+      <div
+        fxFlex="25%"
+        class="card-container"
+        [routerLink]="['/foods', hotels._id]"
+      >
+        <mat-card class="example-card">
+          <img
+            mat-card-image
+            src="https://cdn.myportfolio.com/93bea8ef802a988ed8ab44889dc82b83/b99b565b-5336-4cd2-b731-c64c24515600_rw_1200.gif?h=d41ed58a4aa58082b4478ffc4571d416"
+            alt=""
+          />
+          <mat-card-header>
+            <mat-card-title>{{ hotels.hotel_name }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ hotels.hotel_address }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-container>
+  </div>
+</div>

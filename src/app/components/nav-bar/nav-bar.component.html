@@ -1,0 +1,54 @@
+<div class="top-nav">
+  <div>
+    <button mat-button>
+      <img
+        src="https://cdn.dribbble.com/users/1447046/screenshots/7813949/media/2e5dcde12e9e661e3931ad3caf77affb.gif"
+        class="img"
+        alt="logo"
+      />
+    </button>
+
+    <button mat-raised-button color="warn" routerLink="./">
+      Ready With Freah Foods
+    </button>
+  </div>
+
+  <div>
+    <div>
+      <ng-container
+        *ngIf="
+          this.service.isAuthentication();
+          then authonticate;
+          else notAuthonticate
+        "
+      ></ng-container>
+      <ng-template #notAuthonticate>
+        <button mat-button routerLink="/register">Register</button>
+        <button mat-button routerLink="/login">log in</button>
+      </ng-template>
+    </div>
+
+    <div>
+      <ng-template #authonticate>
+        <button mat-button routerLink="/hotels">Hotels</button>
+        <button
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with share icon"
+          routerLink="/cart"
+          class="alignItem"
+        >
+          <mat-icon
+            matBadge="{{ totalFoodlist }}"
+            matBadgeColor="primary"
+            color="warn"
+            >shopping_cart</mat-icon
+          >
+        </button>
+        <button mat-raised-button color="warn" (click)="logout()">
+          Logout
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</div>

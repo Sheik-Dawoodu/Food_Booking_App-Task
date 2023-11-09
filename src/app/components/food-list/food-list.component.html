@@ -1,0 +1,41 @@
+<app-nav-bar></app-nav-bar>
+<div fxLayoutAlign="end" class="mt-2">
+  <button mat-raised-button (click)="openDialog()" color="primary">
+    Add Foods
+  </button>
+</div>
+<div fxLayout="row wrap" class="container">
+  <ng-container *ngFor="let food of gettingFoodList; let i = index">
+    <div fxFlex="50%" class="card-container">
+      <mat-card class="example-card">
+        <img
+          mat-card-image
+          src="https://cdn.dribbble.com/users/3951514/screenshots/7288432/media/866b49d81c982fdecd5a22de44c5e677.gif"
+          alt="{{ food._id }}"
+        />
+        <mat-card-content>
+          <h2>{{ food.food_name }}</h2>
+          <p>Price: {{ food.food_price | currency : "INR" }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <div>
+            <button
+              class="btn"
+              (click)="addToCart(food)"
+              mat-raised-button
+              color="warn"
+            >
+              <!-- <mat-icon>add</mat-icon> -->
+              Add to Cart
+            </button>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>
+<div fxLayoutAlign="end" class="mt-2">
+  <button mat-raised-button color="warn" routerLink="/hotels">
+    Back To hotels
+  </button>
+</div>

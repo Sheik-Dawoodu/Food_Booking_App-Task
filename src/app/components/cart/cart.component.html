@@ -1,0 +1,48 @@
+<app-nav-bar></app-nav-bar>
+<ng-container *ngIf="food.length !=0" >
+  <div fxLayout="row wrap">
+    <ng-container *ngFor="let hotels of food; let i=index">
+      <div
+        fxFlex="25%"
+        class="card-container"
+      >
+        <mat-card class="example-card">
+          <p>{{i+1}}</p>
+          <img
+            mat-card-image
+            src="https://cdn.myportfolio.com/93bea8ef802a988ed8ab44889dc82b83/b99b565b-5336-4cd2-b731-c64c24515600_rw_1200.gif?h=d41ed58a4aa58082b4478ffc4571d416"
+            alt=""
+          />
+          <mat-card-header>
+            <mat-card-title>{{ hotels.food_name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ hotels.food_price }}</p>
+          </mat-card-content>
+          <!-- <button mat-raised-button (click)="removeItem(hotels)" color="primary">
+            remove Foods
+          </button> -->
+        </mat-card>
+      </div>
+      
+    </ng-container>
+  </div>
+  <div fxLayout="row wrap">
+    <button mat-raised-button color="warn" (click)="emtyCart()">clear All</button>
+    <!-- <h1 class="ms-3">Grand total:{{grandTotal}}</h1> -->
+  </div>    
+</ng-container>
+
+<ng-container *ngIf="food.length ==0">
+    <div class="container">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <mat-card-title>No Item Found</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <img src="https://getillustrations.com/packs/matilda-startup-illustrations/scenes/_1x/shopping,%20e-commerce%20_%20empty,%20shopping%20cart,%20items,%20products,%20zero,%20none_md.png" class="w-25" alt="">
+          </mat-card-content>
+        </mat-card>
+      </div>      
+      
+</ng-container>
